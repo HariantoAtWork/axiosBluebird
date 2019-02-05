@@ -1,41 +1,45 @@
-const axios = require('axios')
-const Promise = require('./lib/Promise')
-const { stringify } = require('query-string')
+'use strict';
 
-const axiosBluebird = {
-  Promise,
-  get: (url, params) => new Promise((fulfil, reject, onCancel) => { // eslint-disable-line
-    const cancelSource = axios.CancelToken.source()
-    const cancelToken = cancelSource.token
+var axios = require('axios');
+var Promise = require('./lib/Promise');
 
-    const config = {
-      params,
-      cancelToken,
-      paramsSerializer: stringify
-    }
+var _require = require('query-string'),
+    stringify = _require.stringify;
 
-    axios
-      .get(url, config)
-      .then(fulfil)
-      .catch(reject)
+var axiosBluebird = {
+  Promise: Promise,
+  get: function get(url, params) {
+    return new Promise(function (fulfil, reject, onCancel) {
+      // eslint-disable-line
+      var cancelSource = axios.CancelToken.source();
+      var cancelToken = cancelSource.token;
 
-    onCancel(() => {
-      cancelSource.cancel()
-    })
-  }),
-  post: (url, params) => new Promise((fulfil, reject, onCancel) => { // eslint-disable-line
-    const cancelSource = axios.CancelToken.source()
-    const cancelToken = cancelSource.token
+      var config = {
+        params: params,
+        cancelToken: cancelToken,
+        paramsSerializer: stringify
+      };
 
-    axios
-      .post(url, params, { cancelToken })
-      .then(fulfil)
-      .catch(reject)
+      axios.get(url, config).then(fulfil).catch(reject);
 
-    onCancel(() => {
-      cancelSource.cancel()
-    })
-  })
-}
+      onCancel(function () {
+        cancelSource.cancel();
+      });
+    });
+  },
+  post: function post(url, params) {
+    return new Promise(function (fulfil, reject, onCancel) {
+      // eslint-disable-line
+      var cancelSource = axios.CancelToken.source();
+      var cancelToken = cancelSource.token;
 
-module.exports = axiosBluebird
+      axios.post(url, params, { cancelToken: cancelToken }).then(fulfil).catch(reject);
+
+      onCancel(function () {
+        cancelSource.cancel();
+      });
+    });
+  }
+};
+
+module.exports = axiosBluebird;
