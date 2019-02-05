@@ -29,3 +29,11 @@ const retrieveData = (url, params) => {
 retrieveData('http://localhost/action', {id: 17})
 retrieveData('http://localhost/action', {id: 39}) // previous progressing queue will cancel
 ```
+
+
+## Methods
+
+Promise:
+get: Makes request with GET method
+post: Makes request with POST method
+
