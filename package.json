@@ -1,6 +1,6 @@
 {
   "name": "axiosbluebird",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Axios with Promise (Bluebird) cancelation",
   "main": "axiosBluebird.js",
   "directories": {
