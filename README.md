@@ -5,7 +5,7 @@ Axios with Promise (Bluebird) cancelation
 ## How to use
 
 ```js
-const axiosBluebird = require('axiosBluebird')
+const axiosBluebird = require('axiosbluebird')
 const Promise = axiosBluebird.Promise
 ```
 
