@@ -9,8 +9,7 @@ var _require = require('query-string'),
 var axiosBluebird = {
   Promise: Promise,
   get: function get(url, params) {
-    return new Promise(function (fulfil, reject, onCancel) {
-      // eslint-disable-line
+    return new Promise(function (fulfil, reject, onCancel) { // eslint-disable-line
       var cancelSource = axios.CancelToken.source();
       var cancelToken = cancelSource.token;
 
@@ -28,8 +27,7 @@ var axiosBluebird = {
     });
   },
   post: function post(url, params) {
-    return new Promise(function (fulfil, reject, onCancel) {
-      // eslint-disable-line
+    return new Promise(function (fulfil, reject, onCancel) { // eslint-disable-line
       var cancelSource = axios.CancelToken.source();
       var cancelToken = cancelSource.token;
 
