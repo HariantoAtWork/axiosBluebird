@@ -1,0 +1,31 @@
+{
+  "name": "axiosbluebird",
+  "version": "1.0.0",
+  "description": "Axios with Promise (Bluebird) cancelation",
+  "main": "axiosBluebird.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.3",
+    "query-string": "^6.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HariantoAtWork/axiosBluebird.git"
+  },
+  "keywords": [
+    "axios",
+    "bluebird"
+  ],
+  "author": "Harianto van Insulinde",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HariantoAtWork/axiosBluebird/issues"
+  },
+  "homepage": "https://github.com/HariantoAtWork/axiosBluebird#readme"
+}
