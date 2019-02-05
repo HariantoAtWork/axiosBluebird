@@ -1,6 +1,9 @@
 # axiosBluebird
 Axios with Promise (Bluebird) cancelation
 
+> NODE: v10.15.1
+
+> NPM: v6.4.1
 
 ## How to use
 
@@ -33,7 +36,7 @@ retrieveData('http://localhost/action', {id: 39}) // previous progressing queue 
 
 ## Methods
 
-Promise:
+Promise: Bluebird Promise
 get: Makes request with GET method
 post: Makes request with POST method
 
