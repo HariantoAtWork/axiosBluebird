@@ -1,4 +1,4 @@
-import axios from 'axios'
+const axios = require('axios')
 const Promise = require('./lib/Promise')
 const { stringify } = require('query-string')
 
