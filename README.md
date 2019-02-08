@@ -33,7 +33,31 @@ retrieveData('http://localhost/action', {id: 39}) // previous progressing queue 
 
 ## Methods
 
-Promise:
+Promise: Bluebird Promise with Cancelation enabled
+
 get: Makes request with GET method
+
 post: Makes request with POST method
 
+
+## NOTE!
+
+Param properties as array
+```js
+params: {
+  filter: [8, 16, 32]
+}
+```
+
+will output:
+
+```
+filter=8&filter=16&filter=32
+```
+
+Idealisticly:
+```
+filter=[8,16,32]
+```
+
+But some servers can't accept brackets
