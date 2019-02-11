@@ -16,7 +16,7 @@ const axiosBluebird = {
     onCancel(() => {
       cancelSource.cancel()
     })
-  },
+  }),
   get: (url, params) => new Promise((fulfil, reject, onCancel) => { // eslint-disable-line
     const cancelSource = axios.CancelToken.source()
     const cancelToken = cancelSource.token
