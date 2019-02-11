@@ -1,0 +1,54 @@
+{
+  "JavaScript": {
+    "beautifiers": [
+      "Prettier",
+      "Pretty Diff",
+      "JS-Beautify",
+      "ESLint"
+    ],
+    "end_with_comma": false,
+    "indent_size": "2",
+    "indent_style": "space",
+    "quotes": "single",
+    "align_assignments": true,
+    "arrow_parens": "as-needed",
+    "brace_style": "collapse-preserve-inline",
+    "break_chained_methods": true,
+    "end_with_newline": true,
+    "end_with_semicolon": false,
+    "max_preserve_newlines": "1",
+    "object_curly_spacing": true,
+    "preserve_newlines": false,
+    "space_after_anon_function": true,
+    "remove_trailing_whitespace": true,
+    "space_before_conditional": true,
+    "space_in_empty_paren": false,
+    "space_in_paren": true
+  },
+  "Vue": {
+    "beautifiers": [
+      "Prettier"
+    ],
+    "end_with_comma": false,
+    "indent_size": "2",
+    "indent_style": "space",
+    "arrow_parens": "as-needed",
+    "end_with_semicolon": false,
+    "object_curly_spacing": true
+  },
+  "HTML": {
+    "beautifiers": [
+      "Pretty Diff",
+      "JS-Beautify"
+    ],
+    "end_with_comma": false,
+    "indent_style": "space",
+    "quotes": "double",
+    "brace_style": "collapse-preserve-inline",
+    "max_preserve_newlines": "1",
+    "preserve_newlines": false,
+    "space_after_anon_function": true,
+    "newline_before_tags": [],
+    "unformatted": []
+  }
+}
