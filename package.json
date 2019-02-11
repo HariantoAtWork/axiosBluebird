@@ -11,7 +11,12 @@
     "bluebird": "^3.5.3",
     "query-string": "^6.2.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@unibeautify/beautifier-prettier": "^0.9.0",
+    "eslint": "^5.13.0",
+    "prettier": "^1.16.4",
+    "unibeautify": "^0.17.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
