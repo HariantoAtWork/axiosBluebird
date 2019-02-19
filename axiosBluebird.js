@@ -1,6 +1,8 @@
 const axios = require('axios')
 const Promise = require('./lib/Promise')
 const { stringify } = require('query-string')
+const methodsNoData = ['delete', 'get', 'head', 'options']
+const methodsWithData = ['post', 'put', 'patch']
 
 const axiosBluebird = {
   Promise,
@@ -9,15 +11,18 @@ const axiosBluebird = {
     const cancelToken = configRequest.hasOwnProperty('cancelToken') ? configRequest.cancelToken : cancelSource.token
     const requestConfig = {...configRequest, ...{ cancelToken }}
 
-    axios(requestConfig)
-      .then(fulfil)
-      .catch(reject)
-
     onCancel(() => {
       cancelSource.cancel()
     })
-  }),
-  get: (url, params) => new Promise((fulfil, reject, onCancel) => { // eslint-disable-line
+
+    return axios(requestConfig)
+      .then(fulfil)
+      .catch(reject)
+  })
+}
+
+methodsNoData.forEach(method => {
+  axiosBluebird[method] = (url, params) => new Promise((fulfil, reject, onCancel) => { // eslint-disable-line
     const cancelSource = axios.CancelToken.source()
     const cancelToken = cancelSource.token
 
@@ -27,28 +32,31 @@ const axiosBluebird = {
       paramsSerializer: stringify
     }
 
-    axios
-      .get(url, config)
-      .then(fulfil)
-      .catch(reject)
-
     onCancel(() => {
       cancelSource.cancel()
     })
-  }),
-  post: (url, params) => new Promise((fulfil, reject, onCancel) => { // eslint-disable-line
+
+    return axios
+      [method](url, config)
+      .then(fulfil)
+      .catch(reject)
+  })
+})
+
+methodsWithData.forEach(method => {
+  axiosBluebird[method] = (url, params) => new Promise((fulfil, reject, onCancel) => { // eslint-disable-line
     const cancelSource = axios.CancelToken.source()
     const cancelToken = cancelSource.token
 
-    axios
-      .post(url, params, { cancelToken })
-      .then(fulfil)
-      .catch(reject)
-
     onCancel(() => {
       cancelSource.cancel()
     })
+
+    return axios
+      [method](url, params, { cancelToken })
+      .then(fulfil)
+      .catch(reject)
   })
-}
+})
 
 module.exports = axiosBluebird
