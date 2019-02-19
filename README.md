@@ -35,9 +35,9 @@ retrieveData('http://api.sylo.space/api/valtech/cases?id=40', {id: [1,2,3]}) // 
 
 ## How to use - axios
 
-> Parameters as _object_ in axios [documentation](https://www.npmjs.com/package/axios)
+> Parameters as Object in axios [documentation](https://www.npmjs.com/package/axios)
 
-> Parameters as _string_ not supported
+> Parameters as String not supported
 
 ```js
 const axiosBluebird = require("axiosbluebird")
@@ -82,23 +82,23 @@ axiosData({
 
 Promise: Bluebird Promise with Cancelation enabled
 
-axios: Request with configuration
+axios ( _requestConfig_: Object ): Request with configuration
 ___
 
-post: Axios request with POST method
+delete ( _url_: String [, _params_: Object] ): Axios request with DELETE method
 
-put: Axios request with PUT method
+get ( _url_: String [, _params_: Object] ): Axios request with GET method
 
-patch: Axios request with PATCH method
+head ( _url_: String [, _params_: Object] ): Axios request with HEAD method
+
+options ( _url_: String [, _params_: Object] ): Axios request with OPTIONS method
 ___
 
-delete: Axios request with DELETE method
+post ( _url_: String, _params_: Object ): Axios request with POST method
 
-get: Axios request with GET method
+put ( _url_: String, _params_: Object ): Axios request with PUT method
 
-head: Axios request with HEAD method
-
-options: Axios request with OPTIONS method
+patch ( _url_: String, _params_: Object ): Axios request with PATCH method
 
 
 ## NOTE!
