@@ -19,19 +19,19 @@ let retrieveDataRequest = Promise.resolve()
 const retrieveData = (url, params) => {
   retrieveDataRequest.cancel()
   retrieveDataRequest = axiosBluebird.get(url, params)
-  retrieveDataRequest
+  return retrieveDataRequest
     .then(json => {
       // DO STUFF
+      return json.data
     })
     .catch(console.error.bind(console, "FAIL - retrieveData:"))
-
-  return retrieveDataRequest
 }
 ```
 
 ```js
-retrieveData("http://localhost/action", { id: 17 })
-retrieveData("http://localhost/action", { id: 39 }) // previous progressing queue will cancel
+retrieveData('http://api.sylo.space/api/valtech/cases', {id: 17})
+retrieveData('http://api.sylo.space/api/valtech/cases?id=40', {id: [1,2,3]}) // previous progressing queue will cancel
+  .then(console.log.bind(console))
 ```
 
 ## How to use - axios
@@ -51,9 +51,7 @@ let axiosDataRequest = Promise.resolve()
 const axiosData = requestConfig => {
   axiosDataRequest.cancel()
   axiosDataRequest = axiosBluebird.axios(requestConfig)
-  axiosDataRequest.catch(console.error.bind(console, "FAIL - axiosData:"))
-
-  return axiosDataRequest
+  return axiosDataRequest.catch(console.error.bind(console, "FAIL - axiosData:"))
 }
 ```
 
@@ -72,8 +70,8 @@ axiosData({
 axiosData({
   method: "get",
   url: "http://bit.ly/2mTM3nY",
-  responseType: "stream"
-}).then(response =>
+  responseType: "stream" })
+  .then(response =>
   response.data.pipe(fs.createWriteStream("ada_lovelace.jpg"))
 ) // previous progressing queue will be canceled
 ```
@@ -86,9 +84,14 @@ Promise: Bluebird Promise with Cancelation enabled
 
 axios: Request with configuration
 
-get: Makes request with GET method
+delete: Axios request with DELETE method
+get: Axios request with GET method
+head: Axios request with HEAD method
+options: Axios request with OPTIONS method
 
-post: Makes request with POST method
+post: Axios request with POST method
+get: Axios request with GET method
+patch: Axios request with PATCH method
 
 ## NOTE!
 
