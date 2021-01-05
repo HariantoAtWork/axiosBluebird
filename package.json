@@ -7,7 +7,7 @@
     "lib": "lib"
   },
   "dependencies": {
-    "axios": "^0.18.1",
+    "axios": "^0.21.1",
     "bluebird": "^3.7.2",
     "query-string": "^6.9.0"
   },
