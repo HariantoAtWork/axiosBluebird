@@ -6,6 +6,7 @@ Axios with Promise (Bluebird) cancelation
 
 > NPM: v6.4.1
 
+> For ESM: use [@harianto/axioscancelable](https://www.npmjs.com/package/@harianto/axioscancelable) for example `import axiosCancelable from '@harianto/axioscancelable'`
 
 ## How to use - get
 
